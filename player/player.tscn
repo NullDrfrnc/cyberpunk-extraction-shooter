@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://kd3ibt0gom3a"]
+
+[ext_resource type="Script" uid="uid://c3e5jx188g11o" path="res://player/player_3d.gd" id="1_ulp21"]
+[ext_resource type="Script" uid="uid://c87hrn4o2iaah" path="res://components/movement_component_3d.gd" id="2_rkbax"]
+
+[node name="Player" type="Node3D" unique_id=1944711781]
+script = ExtResource("1_ulp21")
+metadata/_custom_type_script = "uid://c3e5jx188g11o"
+
+[node name="Components" type="Node3D" parent="." unique_id=1406451611]
+
+[node name="MovementComponent3D" type="Node3D" parent="Components" unique_id=1838933912]
+script = ExtResource("2_rkbax")
+metadata/_custom_type_script = "uid://c87hrn4o2iaah"

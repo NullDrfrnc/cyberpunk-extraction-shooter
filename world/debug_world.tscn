@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bloltnq34bhrd"]
+
+[ext_resource type="PackedScene" uid="uid://kd3ibt0gom3a" path="res://player/player.tscn" id="1_ig7gf"]
+
+[node name="DebugWorld" type="Node3D" unique_id=1049627487]
+
+[node name="Player" parent="." unique_id=1944711781 instance=ExtResource("1_ig7gf")]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=408220474]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=92500738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(16, 1, 16)
