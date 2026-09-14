@@ -1,14 +1,34 @@
 [gd_scene format=3 uid="uid://kd3ibt0gom3a"]
 
-[ext_resource type="Script" uid="uid://c3e5jx188g11o" path="res://player/player_3d.gd" id="1_ulp21"]
+[ext_resource type="Script" uid="uid://c3e5jx188g11o" path="res://player/player.gd" id="1_ulp21"]
 [ext_resource type="Script" uid="uid://c87hrn4o2iaah" path="res://components/movement_component_3d.gd" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://cc03624s8vmal" path="res://components/camera_component_3d.gd" id="3_g1dw6"]
 
-[node name="Player" type="Node3D" unique_id=1944711781]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ato5n"]
+size = Vector3(1, 2, 1)
+
+[node name="Player" type="CharacterBody3D" unique_id=718568993 node_paths=PackedStringArray("neck_pivot")]
 script = ExtResource("1_ulp21")
+neck_pivot = NodePath("NeckPivot")
 metadata/_custom_type_script = "uid://c3e5jx188g11o"
 
 [node name="Components" type="Node3D" parent="." unique_id=1406451611]
 
-[node name="MovementComponent3D" type="Node3D" parent="Components" unique_id=1838933912]
+[node name="MovementComponent3D" type="Node3D" parent="Components" unique_id=1838933912 node_paths=PackedStringArray("player")]
 script = ExtResource("2_rkbax")
+player = NodePath("../..")
 metadata/_custom_type_script = "uid://c87hrn4o2iaah"
+
+[node name="CameraComponent3D" type="Node3D" parent="Components" unique_id=2060549060 node_paths=PackedStringArray("player")]
+script = ExtResource("3_g1dw6")
+player = NodePath("../..")
+metadata/_custom_type_script = "uid://cc03624s8vmal"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=74580390]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_ato5n")
+
+[node name="NeckPivot" type="Node3D" parent="." unique_id=605404796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Camera3D" type="Camera3D" parent="NeckPivot" unique_id=1576129132]
