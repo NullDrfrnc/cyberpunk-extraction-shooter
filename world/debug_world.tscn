@@ -1,13 +1,38 @@
 [gd_scene format=3 uid="uid://bloltnq34bhrd"]
 
 [ext_resource type="PackedScene" uid="uid://kd3ibt0gom3a" path="res://player/player.tscn" id="1_ig7gf"]
+[ext_resource type="Texture2D" uid="uid://bcnm20yvvxf7y" path="res://assets/icon.svg" id="2_cmg67"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7gf"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_cmg67"]
+sky_material = SubResource("ProceduralSkyMaterial_ig7gf")
+
+[sub_resource type="Environment" id="Environment_xf3a8"]
+background_mode = 2
+sky = SubResource("Sky_cmg67")
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xf3a8"]
+albedo_texture = ExtResource("2_cmg67")
 
 [node name="DebugWorld" type="Node3D" unique_id=1049627487]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=705801547]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 11.126572, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=580360222]
+environment = SubResource("Environment_xf3a8")
 
 [node name="Player" parent="." unique_id=1944711781 instance=ExtResource("1_ig7gf")]
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=408220474]
+use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=92500738]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-size = Vector3(16, 1, 16)
+size = Vector3(64, 1, 64)
+material = SubResource("StandardMaterial3D_xf3a8")
