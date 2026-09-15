@@ -8,7 +8,7 @@ var input : Vector2 = Vector2.ZERO
 func _ready() -> void:
 	pass
 
-func _physics_process(delta : float) -> void:
+func _physics_process(_delta : float) -> void:
 	input = Input.get_vector("mv_left", "mv_right", "mv_forward", "mv_backward")
 
 func _unhandled_input(event: InputEvent) -> void:
