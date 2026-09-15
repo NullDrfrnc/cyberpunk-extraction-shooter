@@ -6,6 +6,7 @@ var input : Vector2 = Vector2.ZERO
 
 # Potential signal coupling or values would go through here
 func _ready() -> void:
+	#Constants.GRAVITY = 10.0
 	pass
 
 func _physics_process(_delta : float) -> void:
