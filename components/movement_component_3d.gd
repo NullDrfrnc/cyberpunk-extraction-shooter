@@ -2,13 +2,13 @@ class_name MovementComponent3D extends Node3D
 
 @export var player : Player
 
-@export var max_speed : float = 8.0
+@export var max_speed : float = 10.0
 @export var jump_force : float = 5.5
 
 @export var ground_acceleration : float = 50.0
 @export var ground_deceleration : float = 40.0
 
-@export var air_acceleration : float = 15.0
+@export var air_acceleration : float = 6.0
 @export var air_deceleration : float = 3.0
 
 func _physics_process(delta : float) -> void:
