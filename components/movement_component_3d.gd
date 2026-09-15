@@ -2,23 +2,28 @@ class_name MovementComponent3D extends Node3D
 
 @export var player : Player
 
-@export var max_speed : float = 240
+@export var max_speed : float = 8.0
+@export var jump_force : float = 5.5
 
-@export var ground_acceleration : float = 96
-@export var ground_deceleration : float = 128
+@export var ground_acceleration : float = 50.0
+@export var ground_deceleration : float = 40.0
 
-@export var air_acceleration : float = 24
-@export var air_deceleration : float = 32
+@export var air_acceleration : float = 15.0
+@export var air_deceleration : float = 3.0
 
 func _physics_process(delta : float) -> void:
-	var move_direction = (_vec2_to_vec3(player.input) * player.transform.basis).normalized()
+	var input_direction : Vector3 = (player.transform.basis * _vec2_to_vec3(player.input)).normalized()
 	
-	var target_velocity = move_direction * max_speed
+	var target_velocity = input_direction * max_speed
 	
 	player.velocity = player.velocity.move_toward(
 		Vector3(target_velocity.x, player.velocity.y, target_velocity.z),
 		_get_movement_modifier() * delta
 	)
+	
+	if player.is_on_floor() and Input.is_action_pressed("mv_jump"):
+		player.velocity.y += jump_force
+		
 	
 	player.move_and_slide()
 
