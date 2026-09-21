@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8js6mdmv7oje"
-path="res://.godot/imported/container.png-561fa86196a9090a9e4133e17c052235.ctex"
+uid="uid://bv5yr10ipukwm"
+path="res://.godot/imported/ekg_hud.png-69332140336d6723cffa3edac11d350d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/assets/container.png"
-dest_files=["res://.godot/imported/container.png-561fa86196a9090a9e4133e17c052235.ctex"]
+source_file="res://assets/ekg_hud.png"
+dest_files=["res://.godot/imported/ekg_hud.png-69332140336d6723cffa3edac11d350d.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/high_quality=false
 compress/high_quality_mode=0
 compress/lossy_quality=0.7
