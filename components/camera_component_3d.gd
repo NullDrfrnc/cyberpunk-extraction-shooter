@@ -7,7 +7,7 @@ class_name CameraComponent3D extends Node3D
 
 @export var mouse_sensitivity : float = 1.0
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
 			player.rotate_y(-event.relative.x * (mouse_sensitivity / 1000))

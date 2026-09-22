@@ -4,14 +4,17 @@
 [ext_resource type="Script" uid="uid://c87hrn4o2iaah" path="res://components/movement_component_3d.gd" id="2_rkbax"]
 [ext_resource type="Script" uid="uid://cc03624s8vmal" path="res://components/camera_component_3d.gd" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://d0yfxxi7c5scy" path="res://components/gravity_component_3d.gd" id="4_yw30f"]
-[ext_resource type="Shader" uid="uid://0bamx1atgxei" path="res://player/player_ekg_monitor.tres" id="5_g6k8r"]
 [ext_resource type="Texture2D" uid="uid://bv5yr10ipukwm" path="res://assets/ekg_hud.png" id="6_boad6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ato5n"]
 size = Vector3(1, 2, 1)
 
+[sub_resource type="VisualShader" id="VisualShader_qjkh3"]
+mode = 1
+flags/light_only = false
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8x64e"]
-shader = ExtResource("5_g6k8r")
+shader = SubResource("VisualShader_qjkh3")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rgyib"]
 atlas = ExtResource("6_boad6")
@@ -453,4 +456,6 @@ material = SubResource("ShaderMaterial_8x64e")
 position = Vector2(32, 0)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jbx34")
-frame_progress = 0.52158225
+autoplay = "default"
+frame = 32
+frame_progress = 0.61389977
