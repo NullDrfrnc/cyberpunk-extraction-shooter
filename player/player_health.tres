@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="CounterResource" format=3 uid="uid://c3jej2wp1ewnu"]
-
-[ext_resource type="Script" uid="uid://beyvnnpxb6pms" path="res://resources/counter_resource.gd" id="1_5gxrg"]
-
-[resource]
-script = ExtResource("1_5gxrg")
-name = "Health"
-maximum_amount = 15.0
-metadata/_custom_type_script = "uid://beyvnnpxb6pms"
