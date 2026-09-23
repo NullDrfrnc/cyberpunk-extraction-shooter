@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://bloltnq34bhrd"]
 
-[ext_resource type="PackedScene" uid="uid://kd3ibt0gom3a" path="res://player/player.tscn" id="1_ig7gf"]
+[ext_resource type="PackedScene" uid="uid://kd3ibt0gom3a" path="res://entity/player/player.tscn" id="1_ig7gf"]
 [ext_resource type="Texture2D" uid="uid://bcnm20yvvxf7y" path="res://assets/icon.svg" id="2_cmg67"]
+[ext_resource type="Script" uid="uid://b8y6ljoh0tfr0" path="res://world/damage_pedestal.gd" id="3_xf3a8"]
+[ext_resource type="Script" uid="uid://mtaij6dypn5g" path="res://world/heal_pedestal.gd" id="4_ghhv8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7gf"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -17,6 +19,30 @@ glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xf3a8"]
 albedo_texture = ExtResource("2_cmg67")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b15sj"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ghhv8"]
+material = SubResource("StandardMaterial3D_b15sj")
+top_radius = 2.0
+bottom_radius = 2.0
+height = 1.0
+radial_segments = 12
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_o1dj4"]
+height = 3.0
+radius = 1.9
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mx88g"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_n81ss"]
+material = SubResource("StandardMaterial3D_mx88g")
+top_radius = 2.0
+bottom_radius = 2.0
+height = 1.0
+radial_segments = 12
 
 [node name="DebugWorld" type="Node3D" unique_id=1049627487]
 
@@ -36,3 +62,26 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 size = Vector3(64, 1, 64)
 material = SubResource("StandardMaterial3D_xf3a8")
+
+[node name="DamagePedestal" type="MeshInstance3D" parent="." unique_id=491251472]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.06822, 0, -11)
+mesh = SubResource("CylinderMesh_ghhv8")
+
+[node name="Area3D" type="Area3D" parent="DamagePedestal" unique_id=1497538245]
+script = ExtResource("3_xf3a8")
+dps = 5.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamagePedestal/Area3D" unique_id=1955835817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_o1dj4")
+
+[node name="HealPedestal" type="MeshInstance3D" parent="." unique_id=1118057014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8635597, 0, -11)
+mesh = SubResource("CylinderMesh_n81ss")
+
+[node name="Area3D" type="Area3D" parent="HealPedestal" unique_id=379656168]
+script = ExtResource("4_ghhv8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HealPedestal/Area3D" unique_id=388430903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CylinderShape3D_o1dj4")

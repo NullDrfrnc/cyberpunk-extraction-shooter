@@ -35,8 +35,9 @@ folder_colors={
 "res://addons/": "pink",
 "res://assets/": "teal",
 "res://components/": "yellow",
+"res://entity/": "purple",
+"res://entity/player/": "purple",
 "res://globals/": "blue",
-"res://player/": "purple",
 "res://resources/": "green",
 "res://ui/": "orange",
 "res://world/": "red"
