@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://d0yfxxi7c5scy" path="res://components/gravity_component_3d.gd" id="4_qa8rf"]
 [ext_resource type="Script" uid="uid://c6kvdsqdtsjf5" path="res://components/health_component/health_component.gd" id="5_klmji"]
 [ext_resource type="Resource" uid="uid://c3jej2wp1ewnu" path="res://entity/player/player_health.tres" id="6_wltfy"]
+[ext_resource type="Script" uid="uid://rxnw4x3uwxj2" path="res://ui/component/health_component_ui.gd" id="7_4btn6"]
 [ext_resource type="Texture2D" uid="uid://bv5yr10ipukwm" path="res://assets/ekg_hud.png" id="7_5afgs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ato5n"]
@@ -421,19 +422,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control" type="Control" parent="HUD" unique_id=984192345]
+[node name="Control" type="Control" parent="HUD" unique_id=1913759093]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -16.0
-offset_right = 32.0
+offset_top = -32.0
+offset_right = 64.0
 grow_vertical = 0
+script = ExtResource("7_4btn6")
+metadata/_custom_type_script = "uid://rxnw4x3uwxj2"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HUD/Control" unique_id=396504905]
 texture_filter = 1
 material = SubResource("ShaderMaterial_8x64e")
-position = Vector2(32, 0)
+position = Vector2(32, 16)
 sprite_frames = SubResource("SpriteFrames_jbx34")
 autoplay = "default"
 
